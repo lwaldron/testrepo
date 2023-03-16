@@ -1,0 +1,31 @@
+# Workflow derived from https://github.com/r-lib/actions/tree/v2/examples
+# Need help debugging build failures? Start at https://github.com/r-lib/actions#where-to-find-help
+on:
+  push:
+    branches: [main, master, devel]
+
+
+name: R-CMD-check
+
+jobs:
+  fetch-check-repo:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+      R_KEEP_PKG_SOURCE: yes
+      REPO_NAME: ${{ github.event.repository.name }}
+      TEST_NAME: "ACME"
+    steps:
+      - uses: actions/checkout@v3
+      - name: create repo
+        run: |
+          echo $REPO_NAME
+          cat "hello world" > testfile.txt
+
+      - uses: actions/checkout@v3
+      - run: |
+          git config user.name helpful-bot
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
