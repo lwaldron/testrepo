@@ -9,6 +9,7 @@ name: R-CMD-check
 
 jobs:
   fetch-check-repo:
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
