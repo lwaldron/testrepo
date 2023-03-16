@@ -20,9 +20,11 @@ jobs:
       - name: create repo
         run: |
           echo $REPO_NAME
-          echo "hello world" > helloworld2.txt
+          echo "hello world" > helloworld3.txt
           git config user.name helpful-bot
           git config user.email github-actions@github.com
-          git add helloworld2.txt
+          git add helloworld3.txt
           git commit -am "generated"
-          git push
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
