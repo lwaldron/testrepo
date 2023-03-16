@@ -20,7 +20,7 @@ jobs:
       - name: create repo
         run: |
           echo $REPO_NAME
-          cat "hello world" > testfile.txt
+          echo "hello world" > helloworld.txt
 
       - uses: actions/checkout@v3
       - run: |
