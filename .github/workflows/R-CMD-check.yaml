@@ -23,5 +23,6 @@ jobs:
           echo "hello world" > helloworld.txt
           git config user.name helpful-bot
           git config user.email github-actions@github.com
+          git add helloworld.txt
           git commit -am "generated"
           git push
