@@ -9,7 +9,6 @@ name: R-CMD-check
 
 jobs:
   fetch-check-repo:
-    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
@@ -24,7 +23,7 @@ jobs:
           echo "hello world" > helloworld4.txt
           git config user.name helpful-bot
           git config user.email github-actions@github.com
-          git add helloworld4.txt
+          git add *
           git commit -am "generated"
 
       - name: Create Pull Request
