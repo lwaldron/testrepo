@@ -20,7 +20,10 @@ jobs:
       - name: create repo
         run: |
           echo $REPO_NAME
-          echo "hello world" > helloworld5.txt
+          echo "hello world" > helloworld6.txt
+      - uses: actions/checkout@v3
+      - name: git add
+        run: |
           git config user.name helpful-bot
           git config user.email github-actions@github.com
           git add *
