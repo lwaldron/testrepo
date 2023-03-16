@@ -20,9 +20,12 @@ jobs:
       - name: create repo
         run: |
           echo $REPO_NAME
-          echo "hello world" > helloworld.txt
+          echo "hello world" > helloworld2.txt
+      - uses: actions/checkout@v3
+      - name: make and commit a change
+        run: |
           git config user.name helpful-bot
           git config user.email github-actions@github.com
-          git add helloworld.txt
+          git add *.txt
           git commit -am "generated"
           git push
