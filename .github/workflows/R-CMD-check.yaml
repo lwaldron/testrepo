@@ -21,9 +21,6 @@ jobs:
         run: |
           echo $REPO_NAME
           echo "hello world" > helloworld.txt
-
-      - uses: actions/checkout@v3
-      - run: |
           git config user.name helpful-bot
           git config user.email github-actions@github.com
           git commit -am "generated"
