@@ -21,7 +21,6 @@ jobs:
         run: |
           echo "hello world" > helloworld7.txt
           echo $REPO_NAME
-      - uses: actions/checkout@v3
       - name: git add
         run: |
           git config user.name helpful-bot
